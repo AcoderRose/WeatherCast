@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>WeatherCast</title>
+</head>
+
+<body>
+
+    <header>
+            <h1>🌤️ WeatherCast 🌤️</h1> 
+    </header>
+<main>
+
+    <!-- Search for city search bar section -->
+     <div class="search">
+        <section>
+            <div class="search">
+                <form id="form">
+                    <label for="search-bar"><b>Search by City</b></label>
+                    <br>
+                    <input id="search-bar" type="text" placeholder="Enter your search here...">
+                    <button type="submit" id="submit">Search</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+     <!-- City search results -->
+    <div class="search-results"> 
+        
+        <!-- Section to host user searched weather forecasts by city results. -->
+        <section id="dashboard"> 
+            <div class="container">
+                <div class="weather-forecast">
+                    <h2> Search for latest weather forecast by city</h2>
+                    <div class="weather-forecast">
+                        <p>Temp: <span id="temp-day-0"></span></p>
+                        <p>Humidity: <span id="humidity-day-0"></span></p>
+                        <p>Wind: <span id="wind-day-0"></span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
