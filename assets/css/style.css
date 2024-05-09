@@ -1,70 +1,180 @@
 :root {
-    --yellow: #f1d18a;
-    --light-blue:#73b1c1;
-    --blue-green: #78d8d0;
-    --dark-blue-green: #004445;
+  --yellow: #f1d18a;
+  --light-blue: #73b1c1;
+  --blue-green: #78d8d0;
+  --dark-blue-green: #004445;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 header {
-    height: 60px;
-    padding: 4px;
-    position: relative;
-    width: 100%;
-    background-color: var(--yellow);
-    color: var(--light-blue);
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    border: solid var(--light-blue);
+  height: 60px;
+  padding: 4px;
+  position: relative;
+  width: 100%;
+  background-color: var(--yellow);
+  color: var(--light-blue);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border: solid var(--light-blue);
 }
 
 header h1 {
-    text-align: center;
-    font-family: "Verdana", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+  text-align: center;
+  font-family: "Verdana", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
     Arial, sans-serif;
 }
 
 html,
 body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 main {
-    height: 100%;
-    display: flex; 
-    flex-direction: row; 
+  height: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
-.search-section input[type=text] {
-    padding: 4px;
-    border: none;
-     margin-top: 10px; 
-     margin-left: 2px;
-    font-size: 16px;
+.search-section input[type="text"] {
+  padding: 3.5px;
+  border: none;
+  margin-top: 10px;
+  margin-left: 2px;
+  font-size: 16px;
 }
 
 #submitted {
-    background-color: var(--dark-blue-green);
-    color: var(--light-blue);
-    font-size: 18px;
-    border-radius: 3%;
-    transition-duration: .6s;
-    width: 90%;
-    margin-top: 12px;
-    margin-left: 2px;
-    margin-bottom: 20px;
+  background-color: var(--dark-blue-green);
+  color: whitesmoke;
+  font-size: 18px;
+  border-radius: 3%;
+  transition-duration: 0.6s;
+  width: 100%;
+  margin-top: 12px;
+  margin-left: 2px;
+  margin-bottom: 20px;
 }
 
 #submitted:hover {
-    box-shadow: 0 14px 18px 0 rgba(1, 1, 1, 0.35), 0 20px 54px 0 rgba(1, 1, 1, 0.38);
+  box-shadow: 0 14px 18px 0 rgba(1, 1, 1, 0.35),
+    0 20px 54px 0 rgba(1, 1, 1, 0.38);
 }
 
+/* Screen is split */
+.search,
+.search-results {
+  height: 100vh;
+  margin: 0;
+  padding: 10px;
+  background-color: var(--blue-green);
+  border: 3px solid var(--light-blue);
+}
 
+.search {
+  flex: 0 0 24%;
+}
+
+.search-results {
+  flex: 0 0 76%;
+}
+
+.container {
+  border: solid var(--light-blue);
+  width: calc(100% - 6px);
+  min-height: 190px;
+  margin-bottom: 5px;
+  background-color: var(--light-blue);
+}
+
+#five-day-forecast {
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.forecast-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.forecast-card {
+  flex-direction: column;
+  border: solid var(--light-blue);
+  margin: 10px;
+  text-align: center;
+  background: var(--yellow);
+  border-radius: 15px;
+  padding: 24px;
+}
+
+.forecast-card .date {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.weather-forecast p {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.weather-forecast {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.forecast-header {
+  font-size: 22px;
+  font-weight: bolder;
+}
+
+#search-bar {
+  width: 100%;
+}
+
+/* Responsive design due to media query use */
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column; /* vertical stack of header elements */
+  }
+
+  main {
+    flex-direction: column; /* vertical stack of main elements */
+  }
+
+  .search,
+  .search-results {
+    flex: 0 0 100%; /* Allows each side section to take full width*/
+    height: auto; /* Auto adjusts height to content */
+  }
+
+  /* Full width cards no matter page response */
+  .forecast-card {
+    flex-basis: 100%;
+  }
+}
+
+h2 {
+  text-align: center;
+}
+
+h3 {
+  margin-bottom: 20px;
+}
+
+b {
+  font-size: 20px;
+  margin-left: 3px;
+}
+
+.search section {
+  padding: 15px;
+}
