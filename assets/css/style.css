@@ -1,0 +1,70 @@
+:root {
+    --yellow: #f1d18a;
+    --light-blue:#73b1c1;
+    --blue-green: #78d8d0;
+    --dark-blue-green: #004445;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    height: 60px;
+    padding: 4px;
+    position: relative;
+    width: 100%;
+    background-color: var(--yellow);
+    color: var(--light-blue);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border: solid var(--light-blue);
+}
+
+header h1 {
+    text-align: center;
+    font-family: "Verdana", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    height: 100%;
+    display: flex; 
+    flex-direction: row; 
+}
+
+.search-section input[type=text] {
+    padding: 4px;
+    border: none;
+     margin-top: 10px; 
+     margin-left: 2px;
+    font-size: 16px;
+}
+
+#submitted {
+    background-color: var(--dark-blue-green);
+    color: var(--light-blue);
+    font-size: 18px;
+    border-radius: 3%;
+    transition-duration: .6s;
+    width: 90%;
+    margin-top: 12px;
+    margin-left: 2px;
+    margin-bottom: 20px;
+}
+
+#submitted:hover {
+    box-shadow: 0 14px 18px 0 rgba(1, 1, 1, 0.35), 0 20px 54px 0 rgba(1, 1, 1, 0.38);
+}
+
+
