@@ -18,10 +18,10 @@
         <section>
           <div class="search-section">
             <form id="form">
-              <label for="search-bar"><b>Search by City</b></label>
+              <label for="searchsection"><b>Search by City</b></label>
               <br />
               <input
-                id="search-bar"
+                id="searchsection"
                 name="city"
                 type="text"
                 placeholder="Enter your search here..."
@@ -29,6 +29,7 @@
               <button type="submit" id="submitted">Search</button>
             </form>
           </div>
+          <div id="searched-history"></div>
         </section>
       </div>
 
@@ -37,9 +38,11 @@
         <!-- Section to host user searched weather forecasts by city results. -->
         <section id="dashboard">
           <div class="container">
-            <div class="weather-forecast">
+            <div>
               <h2>Search for latest weather forecast by city</h2>
               <div class="weather-forecast">
+                <div id="cityname"></div>
+                <div id="currentdate"></div>
                 <p>Temp: <span id="temp-day-0"></span></p>
                 <br />
                 <p>Humidity: <span id="humidity-day-0"></span></p>
