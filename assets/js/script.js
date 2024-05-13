@@ -55,7 +55,7 @@ function getForecast(lat, lon, apiKey, city) {
         // calling of the updateForecast function
         updateForecast(data, city, currentDate);
         // calling of the updatedDashboard function
-        updateDashboard(data);
+        updatedDashboard(data);
       }
     })
     .catch(function (error) {
@@ -83,6 +83,33 @@ function updateCitySearch(event) {
     localStorage.setItem("last-searched", city);
     // Searched history display is updated
     displaySearch();
+  }
+}
+
+// function to update dashboard section's forecast
+function updateForecast(data, city, currentDate) {
+  // Does any weather data exist and are their any submissions?
+  if (data && data.list && data.list.length > 0) {
+    //day 1 data
+    const dayData = data.list[0]; 
+    // city name and the date are updated
+    document.getElementById("cityname").textContent = city;
+    document.getElementById("currentdate").textContent = currentDate;
+    // temp is updated
+    document.getElementById(
+      "temp-day-0"
+    ).textContent = `${dayData.main.temp}\u00B0`;
+    // wind is updated
+    document.getElementById(
+      "wind-day-0"
+    ).textContent = `${dayData.wind.speed} mph`;
+    // humidity is updated
+    document.getElementById(
+      "humidity-day-0"
+    ).textContent = `${dayData.main.humidity}%`;
+  } else {
+    // if no data is available error
+    console.error("Oops, no weather data for dashboard section is currently available.");
   }
 }
 
