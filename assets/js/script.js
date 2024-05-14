@@ -91,7 +91,7 @@ function updateForecast(data, city, currentDate) {
   // Does any weather data exist and are their any submissions?
   if (data && data.list && data.list.length > 0) {
     //day 1 data
-    const dayData = data.list[0]; 
+    const dayData = data.list[0];
     // city name and the date are updated
     document.getElementById("cityname").textContent = city;
     document.getElementById("currentdate").textContent = currentDate;
@@ -109,7 +109,45 @@ function updateForecast(data, city, currentDate) {
     ).textContent = `${dayData.main.humidity}%`;
   } else {
     // if no data is available error
-    console.error("Oops, no weather data for dashboard section is currently available.");
+    console.error("Oops, no weather data is currently available.");
+  }
+}
+
+// function to update forecast cards
+function updatedDashboard(data) {
+  // is forecast data available?
+  if (data && data.list && data.list.length > 0) {
+    // Initial five forecast entries are looped through
+    for (let index = 0; index < 5; index++) {
+      const indexDay = index + 1;
+      // temp updated
+      const tempDayId = "temp-day-" + indexDay;
+      // temp day Id variable created
+      const tempDay = document.getElementById(tempDayId);
+      if (tempDay) {
+        // degree symbol added to text content with temperature update
+        tempDay.textContent = data.list[index].main.temp + "\u00B0";
+      }
+
+      // wind is updated
+      const windDayId = "wind-day-" + indexDay;
+      // wind day Id variable created
+      const windDay = document.getElementById(windDayId);
+      if (windDay) {
+        windDay.textContent = data.list[index].wind.speed + " mph";
+      }
+
+      // humidity is updated
+      const humidityDayId = "humidity-day-" + indexDay;
+      // humidity day Id variable created
+      const humidityDay = document.getElementById(humidityDayId);
+      if (humidityDay) {
+        humidityDay.textContent = data.list[index].main.humidity + "%";
+      }
+    }
+  } else {
+    //if no data is available error
+    console.error("Oops, no weather data is currently.");
   }
 }
 
