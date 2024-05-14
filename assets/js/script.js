@@ -82,7 +82,7 @@ function updateCitySearch(event) {
     // Last searched city stored
     localStorage.setItem("last-searched", city);
     // Searched history display is updated
-    displaySearch();
+    renderSearch();
   }
 }
 
@@ -151,5 +151,38 @@ function updatedDashboard(data) {
   }
 }
 
-// event listeners
+function renderSearch() {
+  // The search history element is cleared
+  searchHistoryEl.innerHTML = "";
+
+  // For loop created to iterate over every city in the search history and generate a button for each city.
+  for (let city of searchedHistory) {
+    // Button creation per city element
+    const searchButton = document.createElement("button");
+    // searchButton class for css styling
+    searchButton.setAttribute("class", "searchButton");
+    // city name will be the text content for each button
+    searchButton.textContent = city;
+    searchButton.addEventListener("click", function () {
+      // call getCityPin function when a city button is clicked
+      getCityPin(city, apiKey);
+    });
+    // Appends the searchButtons under the search history section
+    searchHistoryEl.append(searchButton);
+  }
+}
+
+function searchHistory(event) {
+  const cityName = event.target.textContent;
+  getCityPin(cityName, apiKey);
+}
+
+// Ensures to display search history if there is at least 1 searchButton in the search history to render.
+if (searchedHistory.length > 0) {
+  renderSearch();
+}
+
+// Event listeners
 formEl.addEventListener("submit", updateCitySearch);
+// Ensures that city buttons from previous searches are clickable.
+searchHistoryEl.addEventListener("click", searchHistory);
