@@ -67,11 +67,29 @@ function getForecast(lat, lon, apiKey, city) {
     });
 }
 
+// capitalizeCityName function ensures inputted city names have any word in a city name the first letter is capitalized.
+function capitalizeCityName(city) {
+  return (
+    city
+      // Lowercases entire string
+      .toLowerCase()
+      //Splits string into array
+      .split(" ")
+      //Iterates over each word in the array
+      .map(function (word) {
+        //First letter capitalized and appended to remaining part of word
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      })
+      //Converts array of words into a single string
+      .join(" ")
+  );
+}
+
 // Function to update form entry
 function updateCitySearch(event) {
   event.preventDefault();
   // Retrieves city name from search entry and removes any mistakenly entered by user extra spaces.
-  city = searchBar.value.trim();
+  city = capitalizeCityName(searchBar.value.trim());
   if (city) {
     // Is search bar empty?
     getCityPin(city, apiKey);
